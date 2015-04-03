@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wTD-Tt-MES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="HHx-Lf-ppo">
+            <objects>
+                <viewController id="wTD-Tt-MES" customClass="ViewController" customModule="AIFlatSwitchExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MCC-tT-iee"/>
+                        <viewControllerLayoutGuide type="bottom" id="YEU-40-Ufk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5e8-Cf-Z2w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if0-Nq-mSF" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                <rect key="frame" x="16" y="28" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="6b0-G7-s2c"/>
+                                    <constraint firstAttribute="height" constant="50" id="BQn-k8-iZ1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                        <color key="value" red="0.84705882352941175" green="0.29411764705882354" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
+                                        <color key="value" red="0.94509803921568625" green="0.63529411764705879" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSwitchValueChange:" destination="wTD-Tt-MES" eventType="valueChanged" id="BGh-BF-7kd"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpe-KQ-dfv" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                <rect key="frame" x="16" y="98" width="70" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="UOB-m6-kHF"/>
+                                    <constraint firstAttribute="width" constant="70" id="dgd-3H-0Mf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                        <color key="value" red="0.17647058823529413" green="0.70588235294117652" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
+                                        <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSwitchValueChange:" destination="wTD-Tt-MES" eventType="valueChanged" id="K0c-Du-86O"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-na-ZAi" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                <rect key="frame" x="16" y="188" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="b0S-rp-S0o"/>
+                                    <constraint firstAttribute="width" constant="30" id="swP-IN-9uW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                        <color key="value" red="0.89803921568627454" green="0.17647058823529413" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
+                                        <color key="value" red="0.18431372549019609" green="0.77254901960784317" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSwitchValueChange:" destination="wTD-Tt-MES" eventType="valueChanged" id="YMi-Ut-6Tq"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeA-RR-O87">
+                                <rect key="frame" x="74" y="42" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto select &amp; animation" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esR-Sl-3KM">
+                                <rect key="frame" x="94" y="122" width="182" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto select &amp; no animation" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzB-Wm-qAV">
+                                <rect key="frame" x="54" y="192" width="206" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djN-Dk-3LS">
+                                <rect key="frame" x="16" y="238" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8Je-M2-Jhc"/>
+                                    <constraint firstAttribute="width" constant="50" id="N6s-FH-MTL"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Programmatic" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyR-ag-4eg">
+                                <rect key="frame" x="74" y="252" width="108" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wpe-KQ-dfv" firstAttribute="top" secondItem="if0-Nq-mSF" secondAttribute="bottom" constant="20" id="1iI-gd-Anf"/>
+                            <constraint firstItem="djN-Dk-3LS" firstAttribute="centerY" secondItem="wyR-ag-4eg" secondAttribute="centerY" constant="0.5" id="2R5-lD-Jlh"/>
+                            <constraint firstItem="Wpe-KQ-dfv" firstAttribute="leading" secondItem="if0-Nq-mSF" secondAttribute="leading" id="ABS-Eo-0Ko"/>
+                            <constraint firstItem="JeA-RR-O87" firstAttribute="centerY" secondItem="if0-Nq-mSF" secondAttribute="centerY" constant="-0.5" id="Am9-UL-Ik8"/>
+                            <constraint firstItem="JeA-RR-O87" firstAttribute="leading" secondItem="if0-Nq-mSF" secondAttribute="trailing" constant="8" id="FYc-eZ-EmE"/>
+                            <constraint firstItem="VzB-Wm-qAV" firstAttribute="centerY" secondItem="Kjq-na-ZAi" secondAttribute="centerY" constant="-0.5" id="HdG-0N-Vas"/>
+                            <constraint firstItem="esR-Sl-3KM" firstAttribute="centerY" secondItem="Wpe-KQ-dfv" secondAttribute="centerY" constant="-0.5" id="Mz5-8g-Svs"/>
+                            <constraint firstItem="Kjq-na-ZAi" firstAttribute="top" secondItem="Wpe-KQ-dfv" secondAttribute="bottom" constant="20" id="SVl-JO-0cS"/>
+                            <constraint firstItem="if0-Nq-mSF" firstAttribute="top" secondItem="MCC-tT-iee" secondAttribute="bottom" constant="8" id="VFU-kV-D0n"/>
+                            <constraint firstItem="esR-Sl-3KM" firstAttribute="leading" secondItem="Wpe-KQ-dfv" secondAttribute="trailing" constant="8" id="VY1-nc-pOA"/>
+                            <constraint firstItem="Kjq-na-ZAi" firstAttribute="leading" secondItem="Wpe-KQ-dfv" secondAttribute="leading" id="Vpm-ui-WCZ"/>
+                            <constraint firstItem="if0-Nq-mSF" firstAttribute="leading" secondItem="5e8-Cf-Z2w" secondAttribute="leading" constant="16" id="dIE-Gy-Eyk"/>
+                            <constraint firstItem="VzB-Wm-qAV" firstAttribute="leading" secondItem="Kjq-na-ZAi" secondAttribute="trailing" constant="8" id="h5X-lz-DvC"/>
+                            <constraint firstItem="djN-Dk-3LS" firstAttribute="leading" secondItem="Kjq-na-ZAi" secondAttribute="leading" id="i2t-Ip-mb9"/>
+                            <constraint firstItem="djN-Dk-3LS" firstAttribute="top" secondItem="Kjq-na-ZAi" secondAttribute="bottom" constant="20" id="n0b-Rg-iqw"/>
+                            <constraint firstItem="wyR-ag-4eg" firstAttribute="leading" secondItem="djN-Dk-3LS" secondAttribute="trailing" constant="8" id="pig-et-8am"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bigFlatSwitch" destination="Wpe-KQ-dfv" id="4A4-q7-1dI"/>
+                        <outlet property="flatSwitch" destination="if0-Nq-mSF" id="raX-Lc-lXI"/>
+                        <outlet property="label" destination="JeA-RR-O87" id="tYo-nt-tGu"/>
+                        <outlet property="programmaticSwitchContainer" destination="djN-Dk-3LS" id="o3u-jV-WBy"/>
+                        <outlet property="smallFlatSwitch" destination="Kjq-na-ZAi" id="xZP-3o-2Qy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0T-nc-vAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368" y="243"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,6 @@
+framework module AIFlatSwitch {
+  umbrella header "Pods-AIFlatSwitch-umbrella.h"
+
+  export *
+  module * { export * }
+}
