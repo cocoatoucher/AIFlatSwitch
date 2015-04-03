@@ -4,7 +4,8 @@ A smooth, nice looking and IBDesignable animated flat switch component for iOS
 
 Inspired by Creativedash's Dribbble post [here](http://dribbble.com/shots/1631598-On-Off)
 
-![Screenshot 1](https://s3.amazonaws.com/f.cl.ly/items/1p0w3B0E3m2I2k3e0z1Q/onoff.gif)
+<p><a href="url"><img src="https://s3.amazonaws.com/f.cl.ly/items/1p0w3B0E3m2I2k3e0z1Q/onoff.gif" align="left" height="150" width="200" ></a></p>
+<br><br><br><br><br><br><br>
 
 ##Requirements
 - iOS 7.1+
