@@ -205,10 +205,10 @@ import UIKit
 		checkmarkStrokeEnd.calculationMode = kCAAnimationPaced
 		
 		if selected {
-			checkmarkStrokeEnd.values = NSArray(objects: NSNumber(float: 0.0), NSNumber(float: Float(finalStrokeEndForCheckmark + checkmarkBounceAmount)), NSNumber(float: Float(finalStrokeEndForCheckmark)))
+			checkmarkStrokeEnd.values = NSArray(objects: NSNumber(float: 0.0), NSNumber(float: Float(finalStrokeEndForCheckmark + checkmarkBounceAmount)), NSNumber(float: Float(finalStrokeEndForCheckmark))) as [AnyObject]
 			checkmarkStrokeEnd.keyTimes = [NSNumber(double: 0.0), NSNumber(double: checkmarkEndDuration), NSNumber(double: checkmarkEndDuration + checkmarkBounceDuration)]
 		} else {
-			checkmarkStrokeEnd.values = NSArray(objects: NSNumber(float: Float(finalStrokeEndForCheckmark)), NSNumber(float: Float(finalStrokeEndForCheckmark + checkmarkBounceAmount)), NSNumber(float: -0.1))
+			checkmarkStrokeEnd.values = NSArray(objects: NSNumber(float: Float(finalStrokeEndForCheckmark)), NSNumber(float: Float(finalStrokeEndForCheckmark + checkmarkBounceAmount)), NSNumber(float: -0.1)) as [AnyObject]
 			checkmarkStrokeEnd.keyTimes = [NSNumber(double: 0.0), NSNumber(double: checkmarkBounceDuration), NSNumber(double: checkmarkEndDuration + checkmarkBounceDuration)]
 		}
 		
@@ -219,10 +219,10 @@ import UIKit
 		checkmarkStrokeStart.calculationMode = kCAAnimationPaced
 		
 		if selected {
-			checkmarkStrokeStart.values = NSArray(objects: NSNumber(float: 0.0), NSNumber(float: Float(finalStrokeStartForCheckmark + checkmarkBounceAmount)), NSNumber(float: Float(finalStrokeStartForCheckmark)))
+			checkmarkStrokeStart.values = NSArray(objects: NSNumber(float: 0.0), NSNumber(float: Float(finalStrokeStartForCheckmark + checkmarkBounceAmount)), NSNumber(float: Float(finalStrokeStartForCheckmark))) as [AnyObject]
 			checkmarkStrokeStart.keyTimes = [NSNumber(double: 0.0), NSNumber(double: checkmarkStartDuration), NSNumber(double: checkmarkStartDuration + checkmarkBounceDuration)]
 		} else {
-			checkmarkStrokeStart.values = NSArray(objects: NSNumber(float: Float(finalStrokeStartForCheckmark)), NSNumber(float: Float(finalStrokeStartForCheckmark + checkmarkBounceAmount)), NSNumber(float: 0.0))
+			checkmarkStrokeStart.values = NSArray(objects: NSNumber(float: Float(finalStrokeStartForCheckmark)), NSNumber(float: Float(finalStrokeStartForCheckmark + checkmarkBounceAmount)), NSNumber(float: 0.0)) as [AnyObject]
 			checkmarkStrokeStart.keyTimes = [NSNumber(double: 0.0), NSNumber(double: checkmarkBounceDuration), NSNumber(double: checkmarkStartDuration + checkmarkBounceDuration)]
 		}
 		
