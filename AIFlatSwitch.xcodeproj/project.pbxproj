@@ -162,6 +162,7 @@
 		4EC4814B1ACEEA2B00A6A7BA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = Cocoatoucher;
 				TargetAttributes = {

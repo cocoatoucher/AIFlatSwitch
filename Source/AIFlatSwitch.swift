@@ -60,7 +60,7 @@ import UIKit
 		self.configure()
 	}
 	
-	public required init(coder aDecoder: NSCoder) {
+	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		
 		self.configure()
@@ -164,7 +164,7 @@ import UIKit
 		}
 	}
 	
-	private func resetValues(#animated: Bool) {
+	private func resetValues(animated animated: Bool) {
 		CATransaction.begin()
 		CATransaction.setDisableActions(true)
 		
