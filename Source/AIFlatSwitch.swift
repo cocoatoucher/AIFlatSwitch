@@ -72,7 +72,7 @@ import UIKit
 		self.configure()
 	}
 	
-	public override func layoutSublayersOfLayer(layer: CALayer!) {
+	public override func layoutSublayersOfLayer(layer: CALayer) {
 		super.layoutSublayersOfLayer(layer)
 		
 		if layer == self.layer {
