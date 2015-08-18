@@ -60,7 +60,7 @@ import UIKit
 		self.configure()
 	}
 	
-	public required init?(coder aDecoder: NSCoder) {
+	public required init(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		
 		self.configure()
@@ -72,22 +72,22 @@ import UIKit
 		self.configure()
 	}
 	
-	public override func layoutSublayersOfLayer(layer: CALayer) {
+	public override func layoutSublayersOfLayer(layer: CALayer!) {
 		super.layoutSublayersOfLayer(layer)
 		
 		if layer == self.layer {
 			
 			var offset: CGPoint = CGPointZero
-			let radius = fmin(self.bounds.width, self.bounds.height) / 2
+			var radius = fmin(self.bounds.width, self.bounds.height) / 2
 			offset.x = (self.bounds.width - radius * 2) / 2.0
 			offset.y = (self.bounds.height - radius * 2) / 2.0
 			
 			CATransaction.begin()
 			CATransaction.setDisableActions(true)
 			
-			let ovalRect = CGRectMake(offset.x, offset.y, radius * 2, radius * 2)
+			var ovalRect = CGRectMake(offset.x, offset.y, radius * 2, radius * 2)
 			
-			let circlePath = UIBezierPath(ovalInRect: ovalRect)
+			var circlePath = UIBezierPath(ovalInRect: ovalRect)
 			trailCircle.path = circlePath.CGPath
 			
 			circle.transform = CATransform3DIdentity
@@ -95,12 +95,12 @@ import UIKit
 			circle.path = UIBezierPath(ovalInRect: ovalRect).CGPath
 			circle.transform = CATransform3DMakeRotation(CGFloat(212 * M_PI / 180), 0, 0, 1)
 			
-			let origin = CGPointMake(offset.x + radius, offset.y + radius)
+			var origin = CGPointMake(offset.x + radius, offset.y + radius)
 			var checkStartPoint = CGPointZero
 			checkStartPoint.x = origin.x + radius * CGFloat(cos(212 * M_PI / 180))
 			checkStartPoint.y = origin.y + radius * CGFloat(sin(212 * M_PI / 180))
 			
-			let checkmarkPath = UIBezierPath()
+			var checkmarkPath = UIBezierPath()
 			checkmarkPath.moveToPoint(checkStartPoint)
 			
 			self.checkmarkMidPoint = CGPointMake(offset.x + radius * 0.9, offset.y + radius * 1.4)
@@ -164,7 +164,7 @@ import UIKit
 		}
 	}
 	
-	private func resetValues(animated animated: Bool) {
+	private func resetValues(#animated: Bool) {
 		CATransaction.begin()
 		CATransaction.setDisableActions(true)
 		
@@ -186,19 +186,19 @@ import UIKit
 	}
 	
 	private func addAnimationsForSelected(selected: Bool) {
-		let circleAnimationDuration = animationDuration * 0.5
+		var circleAnimationDuration = animationDuration * 0.5
 		
-		let checkmarkEndDuration = animationDuration * 0.8
-		let checkmarkStartDuration = checkmarkEndDuration - circleAnimationDuration
-		let checkmarkBounceDuration = animationDuration - checkmarkEndDuration
+		var checkmarkEndDuration = animationDuration * 0.8
+		var checkmarkStartDuration = checkmarkEndDuration - circleAnimationDuration
+		var checkmarkBounceDuration = animationDuration - checkmarkEndDuration
 		
-		let checkmarkAnimationGroup = CAAnimationGroup()
+		var checkmarkAnimationGroup = CAAnimationGroup()
 		checkmarkAnimationGroup.removedOnCompletion = false
 		checkmarkAnimationGroup.fillMode = kCAFillModeForwards
 		checkmarkAnimationGroup.duration = animationDuration
 		checkmarkAnimationGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		
-		let checkmarkStrokeEnd = CAKeyframeAnimation(keyPath: "strokeEnd")
+		var checkmarkStrokeEnd = CAKeyframeAnimation(keyPath: "strokeEnd")
 		checkmarkStrokeEnd.duration = checkmarkEndDuration + checkmarkBounceDuration
 		checkmarkStrokeEnd.removedOnCompletion = false
 		checkmarkStrokeEnd.fillMode = kCAFillModeForwards
@@ -212,7 +212,7 @@ import UIKit
 			checkmarkStrokeEnd.keyTimes = [NSNumber(double: 0.0), NSNumber(double: checkmarkBounceDuration), NSNumber(double: checkmarkEndDuration + checkmarkBounceDuration)]
 		}
 		
-		let checkmarkStrokeStart = CAKeyframeAnimation(keyPath: "strokeStart")
+		var checkmarkStrokeStart = CAKeyframeAnimation(keyPath: "strokeStart")
 		checkmarkStrokeStart.duration = checkmarkStartDuration + checkmarkBounceDuration
 		checkmarkStrokeStart.removedOnCompletion = false
 		checkmarkStrokeStart.fillMode = kCAFillModeForwards
@@ -233,13 +233,13 @@ import UIKit
 		checkmarkAnimationGroup.animations = [checkmarkStrokeEnd, checkmarkStrokeStart]
 		checkmark.addAnimation(checkmarkAnimationGroup, forKey: "checkmarkAnimation")
 		
-		let circleAnimationGroup = CAAnimationGroup()
+		var circleAnimationGroup = CAAnimationGroup()
 		circleAnimationGroup.duration = animationDuration
 		circleAnimationGroup.removedOnCompletion = false
 		circleAnimationGroup.fillMode = kCAFillModeForwards
 		circleAnimationGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		
-		let circleStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
+		var circleStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
 		circleStrokeEnd.duration = circleAnimationDuration
 		if selected {
 			circleStrokeEnd.beginTime = 0.0
@@ -258,7 +258,7 @@ import UIKit
 		circleAnimationGroup.animations = [circleStrokeEnd]
 		circle.addAnimation(circleAnimationGroup, forKey: "circleStrokeEnd")
 		
-		let trailCircleColor = CABasicAnimation(keyPath: "opacity")
+		var trailCircleColor = CABasicAnimation(keyPath: "opacity")
 		trailCircleColor.duration = animationDuration
 		if selected {
 			trailCircleColor.fromValue = NSNumber(float: 0.0)
