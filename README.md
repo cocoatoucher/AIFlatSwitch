@@ -102,3 +102,5 @@ flatSwitch.trailStrokeColor = UIColor.redColor()
 ## License
 
 AIFlatSwitch is released under the MIT license. See LICENSE for details.
+
+animated check button, checkmark
