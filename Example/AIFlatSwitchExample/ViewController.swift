@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 		self.programmaticSwitch.lineWidth = 2.0
 		self.programmaticSwitch.strokeColor = UIColor.blueColor()
 		self.programmaticSwitch.trailStrokeColor = UIColor.redColor().colorWithAlphaComponent(0.2)
-		self.programmaticSwitch.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+		self.programmaticSwitch.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 		programmaticSwitchContainer.addSubview(programmaticSwitch)
 		
 		updateSwitchValue()
