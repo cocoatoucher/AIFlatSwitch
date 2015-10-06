@@ -15,8 +15,8 @@ Inspired by Creativedash's Dribbble post [here](http://dribbble.com/shots/163159
 <br><br><br><br><br><br><br>
 
 ##Requirements
-- iOS 7.1+
-- Xcode 6.1
+- iOS 8.0+
+- Xcode 7.0.1
 
 ## Installation
 
