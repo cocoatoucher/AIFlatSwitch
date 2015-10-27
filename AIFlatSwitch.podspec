@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary = 'An alternative flat component to UISwitch on iOS'
   s.homepage = 'https://github.com/cocoatoucher/AIFlatSwitch'
   s.authors = { 'cocoatoucher' => 'cocoatoucher@aol.com' }
-  s.source = { :git => 'https://github.com/cocoatoucher/AIFlatSwitch.git', :tag => s.version }
+  s.source = { :git => 'https://github.com/dehlen/AIFlatSwitch.git', :tag => s.version }
   s.ios.deployment_target = '8.0'
   s.source_files = 'Source/*.swift'
   s.requires_arc = true

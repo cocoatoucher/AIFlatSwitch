@@ -72,7 +72,7 @@ import UIKit
 		if layer == self.layer {
 			
 			var offset: CGPoint = CGPointZero
-			let radius = fmin(self.bounds.width, self.bounds.height) / 2
+			let radius = fmin(self.bounds.width, self.bounds.height) / 2 - 1
 			offset.x = (self.bounds.width - radius * 2) / 2.0
 			offset.y = (self.bounds.height - radius * 2) / 2.0
 			
