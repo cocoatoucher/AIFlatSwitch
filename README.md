@@ -51,10 +51,6 @@ Then, run the following command:
 $ pod install
 ```
 
-### Manually
-1. Download and drop ```AIFlatSwitch.swift``` in your project.  
-2. Congratulations!  
-
 ---
 
 ## Usage
