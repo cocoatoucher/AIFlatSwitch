@@ -151,14 +151,14 @@ import UIKit
 		circle.removeAllAnimations()
 		trailCircle.removeAllAnimations()
 		
-		self.resetValues(animated: animated)
+		self.resetValues(animated)
 		
 		if animated {
 			self.addAnimationsForSelected(selected_internal)
 		}
 	}
 	
-	fileprivate func resetValues(animated: Bool) {
+	fileprivate func resetValues(_ animated: Bool) {
 		CATransaction.begin()
 		CATransaction.setDisableActions(true)
 		
