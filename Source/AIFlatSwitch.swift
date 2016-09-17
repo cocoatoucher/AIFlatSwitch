@@ -8,14 +8,17 @@
 
 import UIKit
 
-@IBDesignable public class AIFlatSwitch: UIControl {
+@IBDesignable open class AIFlatSwitch: UIControl {
 	
-	let finalStrokeEndForCheckmark: CGFloat = 0.85
-	let finalStrokeStartForCheckmark: CGFloat = 0.3
-	let checkmarkBounceAmount: CGFloat = 0.1
-	let animationDuration: CFTimeInterval = 0.3
+	private let finalStrokeEndForCheckmark: CGFloat = 0.85
+	private let finalStrokeStartForCheckmark: CGFloat = 0.3
+	private let checkmarkBounceAmount: CGFloat = 0.1
+	private let animationDuration: CFTimeInterval = 0.3
 	
-	@IBInspectable public var lineWidth: CGFloat = 2.0 {
+	/**
+		Line width for the circle, trail and checkmark parts of the switch.
+	*/
+	@IBInspectable open var lineWidth: CGFloat = 2.0 {
 		didSet {
 			self.circle.lineWidth = lineWidth
 			self.checkmark.lineWidth = lineWidth
@@ -23,152 +26,216 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable public var strokeColor: UIColor = UIColor.blackColor() {
+	/**
+		Set to false if the selection should not be animated with touch up inside events.
+	*/
+	@IBInspectable open var animatesOnTouch: Bool = true
+	
+	/**
+		Stroke color for circle and checkmark.
+		Circle disappears and trail becomes visible when the switch is selected.
+	*/
+	@IBInspectable open var strokeColor: UIColor = UIColor.black {
 		didSet {
-			self.circle.strokeColor = strokeColor.CGColor
-			self.checkmark.strokeColor = strokeColor.CGColor
+			self.circle.strokeColor = strokeColor.cgColor
+			self.checkmark.strokeColor = strokeColor.cgColor
 		}
 	}
 	
-	@IBInspectable public var trailStrokeColor: UIColor = UIColor.grayColor() {
+	/**
+		Stroke color for trail.
+		Trail disappears and circle becomes visible when the switch is deselected.
+	*/
+	@IBInspectable open var trailStrokeColor: UIColor = UIColor.gray {
 		didSet {
-			self.trailCircle.strokeColor = trailStrokeColor.CGColor
+			self.trailCircle.strokeColor = trailStrokeColor.cgColor
 		}
 	}
 	
-	@IBInspectable public override var selected: Bool {
+	/**
+		Overrides isSelected from UIControl using internal state flag.
+		Default value is false.
+	*/
+	@IBInspectable open override var isSelected: Bool {
 		get {
-			return selected_internal
+			return isSelectedInternal
 		}
 		set {
-			super.selected = newValue
+			super.isSelected = newValue
 			self.setSelected(newValue, animated: false)
 		}
 	}
 	
-	private var trailCircle: CAShapeLayer = CAShapeLayer()
-	private var circle: CAShapeLayer = CAShapeLayer()
-	private var checkmark: CAShapeLayer = CAShapeLayer()
+	/**
+		Internal flag to keep track of selected state.
+	*/
+	fileprivate var isSelectedInternal: Bool = false
 	
-	private var checkmarkMidPoint: CGPoint = CGPointZero
+	/**
+		Trail layer. Trail is the circle which appears when the switch is in deselected state.
+	*/
+	fileprivate var trailCircle: CAShapeLayer = CAShapeLayer()
+	/**
+		Circle layer. Circle appears when the switch is in selected state.
+	*/
+	fileprivate var circle: CAShapeLayer = CAShapeLayer()
+	/**
+		Checkmark layer. Checkmark appears when the switch is in selected state.
+	*/
+	fileprivate var checkmark: CAShapeLayer = CAShapeLayer()
 	
-	private var selected_internal: Bool = false
+	/**
+		Middle point of the checkmark layer. Calculated each time the sublayers are layout.
+	*/
+	fileprivate var checkmarkSplitPoint: CGPoint = CGPoint.zero
 	
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
-		
+		// Configure switch when created with frame
 		self.configure()
 	}
 	
 	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		
+		// Configure switch when created from xib
 		self.configure()
 	}
 	
-	public override func layoutSublayersOfLayer(layer: CALayer) {
-		super.layoutSublayersOfLayer(layer)
+	/**
+		Configures circle, trail and checkmark layers after initialization.
+		Setups switch with the default selection state. 
+		Configures target for tocuh up inside event for triggering selection.
+	*/
+	fileprivate func configure() {
 		
-		if layer == self.layer {
-			
-			var offset: CGPoint = CGPointZero
-			let radius = fmin(self.bounds.width, self.bounds.height) / 2 - 1
-			offset.x = (self.bounds.width - radius * 2) / 2.0
-			offset.y = (self.bounds.height - radius * 2) / 2.0
-			
-			CATransaction.begin()
-			CATransaction.setDisableActions(true)
-			
-			let ovalRect = CGRectMake(offset.x, offset.y, radius * 2, radius * 2)
-			
-			let circlePath = UIBezierPath(ovalInRect: ovalRect)
-			trailCircle.path = circlePath.CGPath
-			
-			circle.transform = CATransform3DIdentity
-			circle.frame = self.bounds
-			circle.path = UIBezierPath(ovalInRect: ovalRect).CGPath
-			circle.transform = CATransform3DMakeRotation(CGFloat(212 * M_PI / 180), 0, 0, 1)
-			
-			let origin = CGPointMake(offset.x + radius, offset.y + radius)
-			var checkStartPoint = CGPointZero
-			checkStartPoint.x = origin.x + radius * CGFloat(cos(212 * M_PI / 180))
-			checkStartPoint.y = origin.y + radius * CGFloat(sin(212 * M_PI / 180))
-			
-			let checkmarkPath = UIBezierPath()
-			checkmarkPath.moveToPoint(checkStartPoint)
-			
-			self.checkmarkMidPoint = CGPointMake(offset.x + radius * 0.9, offset.y + radius * 1.4)
-			checkmarkPath.addLineToPoint(self.checkmarkMidPoint)
-			
-			var checkEndPoint = CGPointZero
-			checkEndPoint.x = origin.x + radius * CGFloat(cos(320 * M_PI / 180))
-			checkEndPoint.y = origin.y + radius * CGFloat(sin(320 * M_PI / 180))
-			
-			checkmarkPath.addLineToPoint(checkEndPoint)
-			
-			checkmark.frame = self.bounds
-			checkmark.path = checkmarkPath.CGPath
-			
-			CATransaction.commit()
+		func configureShapeLayer(_ shapeLayer: CAShapeLayer) {
+			shapeLayer.lineJoin = kCALineJoinRound
+			shapeLayer.lineCap = kCALineCapRound
+			shapeLayer.lineWidth = self.lineWidth
+			shapeLayer.fillColor = UIColor.clear.cgColor
+			self.layer.addSublayer(shapeLayer)
 		}
-	}
-	
-	private func configure() {
 		
-		self.backgroundColor = UIColor.clearColor()
-		
+		// Setup layers
 		configureShapeLayer(trailCircle)
-		trailCircle.strokeColor = trailStrokeColor.CGColor
+		trailCircle.strokeColor = trailStrokeColor.cgColor
 		
 		configureShapeLayer(circle)
-		circle.strokeColor = strokeColor.CGColor
+		circle.strokeColor = strokeColor.cgColor
 		
 		configureShapeLayer(checkmark)
-		checkmark.strokeColor = strokeColor.CGColor
+		checkmark.strokeColor = strokeColor.cgColor
 		
+		// Setup initial state
 		self.setSelected(false, animated: false)
 		
-		self.addTarget(self, action: "onTouchUpInside:", forControlEvents: UIControlEvents.TouchUpInside)
+		// Add target for handling touch up inside event as a default manner
+		self.addTarget(self, action: #selector(AIFlatSwitch.handleTouchUpInside), for: UIControlEvents.touchUpInside)
 	}
 	
-	internal func onTouchUpInside(sender: AnyObject) {
-		self.setSelected(!self.selected, animated: true)
-		self.sendActionsForControlEvents(UIControlEvents.ValueChanged)
+	/**
+		Switches between selected and deselected state with touch up inside events. Set animatesOnTouch to false to disable animation on touch.
+		Send valueChanged event as a result.
+	*/
+	@objc fileprivate func handleTouchUpInside() {
+		self.setSelected(!self.isSelected, animated: self.animatesOnTouch)
+		self.sendActions(for: UIControlEvents.valueChanged)
 	}
 	
-	private func configureShapeLayer(shapeLayer: CAShapeLayer) {
-		shapeLayer.lineJoin = kCALineJoinRound
-		shapeLayer.lineCap = kCALineCapRound
-		shapeLayer.lineWidth = self.lineWidth
-		shapeLayer.fillColor = UIColor.clearColor().CGColor
-		self.layer.addSublayer(shapeLayer)
-	}
-	
-	public func setSelected(isSelected: Bool, animated: Bool) {
-		self.selected_internal = isSelected
+	/**
+		Switches between selected and deselected state. Use this method to programmatically change the valeu of selected state.
+		- Parameter isSelected: Whether the switch should be selected or not
+		- Parameter animated:	Whether the transition should be animated or not
+	*/
+	open func setSelected(_ isSelected: Bool, animated: Bool) {
+		self.isSelectedInternal = isSelected
 		
+		// Remove all animations before switching to new state
 		checkmark.removeAllAnimations()
 		circle.removeAllAnimations()
 		trailCircle.removeAllAnimations()
 		
-		self.resetValues(animated: animated)
+		// Reset sublayer values
+		self.resetLayerValues(desiredSelectedState:self.isSelectedInternal, stateWillBeAnimated: animated)
 		
+		// Animate to new state
 		if animated {
-			self.addAnimationsForSelected(selected_internal)
+			self.addAnimations(desiredSelectedState: isSelectedInternal)
 		}
 	}
 	
-	private func resetValues(animated animated: Bool) {
+	open override func layoutSublayers(of: CALayer) {
+		super.layoutSublayers(of: of)
+		
+		guard layer == self.layer else {
+			return
+		}
+		
+		var offset: CGPoint = CGPoint.zero
+		let radius = fmin(self.bounds.width, self.bounds.height) / 2 - (lineWidth / 2)
+		offset.x = (self.bounds.width - radius * 2) / 2.0
+		offset.y = (self.bounds.height - radius * 2) / 2.0
+		
 		CATransaction.begin()
 		CATransaction.setDisableActions(true)
 		
-		if (selected_internal && animated) || (selected_internal == false && animated == false)  {
+		// Calculate frame for circle and trail circle
+		let circleAndTrailFrame = CGRect(x: offset.x, y: offset.y, width: radius * 2, height: radius * 2)
+		
+		let circlePath = UIBezierPath(ovalIn: circleAndTrailFrame)
+		trailCircle.path = circlePath.cgPath
+		
+		circle.transform = CATransform3DIdentity
+		circle.frame = self.bounds
+		circle.path = UIBezierPath(ovalIn: circleAndTrailFrame).cgPath
+		// Rotating circle by 212 degrees to be able to manipulate stroke end location.
+		circle.transform = CATransform3DMakeRotation(CGFloat(212 * M_PI / 180), 0, 0, 1)
+		
+		let origin = CGPoint(x: offset.x + radius, y: offset.y + radius)
+		
+		// Calculate checkmark path
+		let checkmarkPath = UIBezierPath()
+		
+		var checkmarkStartPoint = CGPoint.zero
+		// Checkmark will start from circle's stroke end calculated above.
+		checkmarkStartPoint.x = origin.x + radius * CGFloat(cos(212 * M_PI / 180))
+		checkmarkStartPoint.y = origin.y + radius * CGFloat(sin(212 * M_PI / 180))
+		checkmarkPath.move(to: checkmarkStartPoint)
+		
+		self.checkmarkSplitPoint = CGPoint(x: offset.x + radius * 0.9, y: offset.y + radius * 1.4)
+		checkmarkPath.addLine(to: self.checkmarkSplitPoint)
+		
+		var checkmarkEndPoint = CGPoint.zero
+		// Checkmark will end 320 degrees location of the circle layer.
+		checkmarkEndPoint.x = origin.x + radius * CGFloat(cos(320 * M_PI / 180))
+		checkmarkEndPoint.y = origin.y + radius * CGFloat(sin(320 * M_PI / 180))
+		checkmarkPath.addLine(to: checkmarkEndPoint)
+		
+		checkmark.frame = self.bounds
+		checkmark.path = checkmarkPath.cgPath
+		
+		CATransaction.commit()
+	}
+	
+	/**
+		Switches layer values to selected or deselected state without any animation.
+		If the there is going to be an animation(stateWillBeAnimated parameter is true), then the layer values are reset to reverse of the desired state value to provide the transition for animation.
+		- Parameter desiredSelectedState:	Desired selection state for the reset to handle
+		- Parameter stateWillBeAnimated:	If the reset should prepare the layers for animation
+	*/
+	fileprivate func resetLayerValues(desiredSelectedState: Bool, stateWillBeAnimated: Bool) {
+		CATransaction.begin()
+		CATransaction.setDisableActions(true)
+		
+		if (desiredSelectedState && stateWillBeAnimated) || (desiredSelectedState == false && stateWillBeAnimated == false)  {
+			// Switch to deselected state
 			checkmark.strokeEnd = 0.0
 			checkmark.strokeStart = 0.0
 			trailCircle.opacity = 0.0
 			circle.strokeStart = 0.0
 			circle.strokeEnd = 1.0
 		} else {
+			// Switch to selected state
 			checkmark.strokeEnd = finalStrokeEndForCheckmark
 			checkmark.strokeStart = finalStrokeStartForCheckmark
 			trailCircle.opacity = 1.0
@@ -179,7 +246,11 @@ import UIKit
 		CATransaction.commit()
 	}
 	
-	private func addAnimationsForSelected(selected: Bool) {
+	/**
+		Animates the selected state transition.
+		- Parameter desiredSelectedState:	Desired selection state for the animation to handle
+	*/
+	fileprivate func addAnimations(desiredSelectedState selected: Bool) {
 		let circleAnimationDuration = animationDuration * 0.5
 		
 		let checkmarkEndDuration = animationDuration * 0.8
@@ -187,49 +258,49 @@ import UIKit
 		let checkmarkBounceDuration = animationDuration - checkmarkEndDuration
 		
 		let checkmarkAnimationGroup = CAAnimationGroup()
-		checkmarkAnimationGroup.removedOnCompletion = false
+		checkmarkAnimationGroup.isRemovedOnCompletion = false
 		checkmarkAnimationGroup.fillMode = kCAFillModeForwards
 		checkmarkAnimationGroup.duration = animationDuration
 		checkmarkAnimationGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		
-		let checkmarkStrokeEnd = CAKeyframeAnimation(keyPath: "strokeEnd")
-		checkmarkStrokeEnd.duration = checkmarkEndDuration + checkmarkBounceDuration
-		checkmarkStrokeEnd.removedOnCompletion = false
-		checkmarkStrokeEnd.fillMode = kCAFillModeForwards
-		checkmarkStrokeEnd.calculationMode = kCAAnimationPaced
+		let checkmarkStrokeEndAnimation = CAKeyframeAnimation(keyPath: "strokeEnd")
+		checkmarkStrokeEndAnimation.duration = checkmarkEndDuration + checkmarkBounceDuration
+		checkmarkStrokeEndAnimation.isRemovedOnCompletion = false
+		checkmarkStrokeEndAnimation.fillMode = kCAFillModeForwards
+		checkmarkStrokeEndAnimation.calculationMode = kCAAnimationPaced
 		
 		if selected {
-			checkmarkStrokeEnd.values = NSArray(objects: NSNumber(float: 0.0), NSNumber(float: Float(finalStrokeEndForCheckmark + checkmarkBounceAmount)), NSNumber(float: Float(finalStrokeEndForCheckmark))) as [AnyObject]
-			checkmarkStrokeEnd.keyTimes = [NSNumber(double: 0.0), NSNumber(double: checkmarkEndDuration), NSNumber(double: checkmarkEndDuration + checkmarkBounceDuration)]
+			checkmarkStrokeEndAnimation.values = [NSNumber(value: 0.0 as Float), NSNumber(value: Float(finalStrokeEndForCheckmark + checkmarkBounceAmount) as Float), NSNumber(value: Float(finalStrokeEndForCheckmark) as Float)]
+			checkmarkStrokeEndAnimation.keyTimes = [NSNumber(value: 0.0 as Double), NSNumber(value: checkmarkEndDuration as Double), NSNumber(value: checkmarkEndDuration + checkmarkBounceDuration as Double)]
 		} else {
-			checkmarkStrokeEnd.values = NSArray(objects: NSNumber(float: Float(finalStrokeEndForCheckmark)), NSNumber(float: Float(finalStrokeEndForCheckmark + checkmarkBounceAmount)), NSNumber(float: -0.1)) as [AnyObject]
-			checkmarkStrokeEnd.keyTimes = [NSNumber(double: 0.0), NSNumber(double: checkmarkBounceDuration), NSNumber(double: checkmarkEndDuration + checkmarkBounceDuration)]
+			checkmarkStrokeEndAnimation.values = [NSNumber(value: Float(finalStrokeEndForCheckmark) as Float), NSNumber(value: Float(finalStrokeEndForCheckmark + checkmarkBounceAmount) as Float), NSNumber(value: -0.1 as Float)]
+			checkmarkStrokeEndAnimation.keyTimes = [NSNumber(value: 0.0 as Double), NSNumber(value: checkmarkBounceDuration as Double), NSNumber(value: checkmarkEndDuration + checkmarkBounceDuration as Double)]
 		}
 		
-		let checkmarkStrokeStart = CAKeyframeAnimation(keyPath: "strokeStart")
-		checkmarkStrokeStart.duration = checkmarkStartDuration + checkmarkBounceDuration
-		checkmarkStrokeStart.removedOnCompletion = false
-		checkmarkStrokeStart.fillMode = kCAFillModeForwards
-		checkmarkStrokeStart.calculationMode = kCAAnimationPaced
+		let checkmarkStrokeStartAnimation = CAKeyframeAnimation(keyPath: "strokeStart")
+		checkmarkStrokeStartAnimation.duration = checkmarkStartDuration + checkmarkBounceDuration
+		checkmarkStrokeStartAnimation.isRemovedOnCompletion = false
+		checkmarkStrokeStartAnimation.fillMode = kCAFillModeForwards
+		checkmarkStrokeStartAnimation.calculationMode = kCAAnimationPaced
 		
 		if selected {
-			checkmarkStrokeStart.values = NSArray(objects: NSNumber(float: 0.0), NSNumber(float: Float(finalStrokeStartForCheckmark + checkmarkBounceAmount)), NSNumber(float: Float(finalStrokeStartForCheckmark))) as [AnyObject]
-			checkmarkStrokeStart.keyTimes = [NSNumber(double: 0.0), NSNumber(double: checkmarkStartDuration), NSNumber(double: checkmarkStartDuration + checkmarkBounceDuration)]
+			checkmarkStrokeStartAnimation.values = [NSNumber(value: 0.0 as Float), NSNumber(value: Float(finalStrokeStartForCheckmark + checkmarkBounceAmount) as Float), NSNumber(value: Float(finalStrokeStartForCheckmark) as Float)]
+			checkmarkStrokeStartAnimation.keyTimes = [NSNumber(value: 0.0 as Double), NSNumber(value: checkmarkStartDuration as Double), NSNumber(value: checkmarkStartDuration + checkmarkBounceDuration as Double)]
 		} else {
-			checkmarkStrokeStart.values = NSArray(objects: NSNumber(float: Float(finalStrokeStartForCheckmark)), NSNumber(float: Float(finalStrokeStartForCheckmark + checkmarkBounceAmount)), NSNumber(float: 0.0)) as [AnyObject]
-			checkmarkStrokeStart.keyTimes = [NSNumber(double: 0.0), NSNumber(double: checkmarkBounceDuration), NSNumber(double: checkmarkStartDuration + checkmarkBounceDuration)]
+			checkmarkStrokeStartAnimation.values = [NSNumber(value: Float(finalStrokeStartForCheckmark) as Float), NSNumber(value: Float(finalStrokeStartForCheckmark + checkmarkBounceAmount) as Float), NSNumber(value: 0.0 as Float)]
+			checkmarkStrokeStartAnimation.keyTimes = [NSNumber(value: 0.0 as Double), NSNumber(value: checkmarkBounceDuration as Double), NSNumber(value: checkmarkStartDuration + checkmarkBounceDuration as Double)]
 		}
 		
 		if selected {
-			checkmarkStrokeStart.beginTime = circleAnimationDuration
+			checkmarkStrokeStartAnimation.beginTime = circleAnimationDuration
 		}
 		
-		checkmarkAnimationGroup.animations = [checkmarkStrokeEnd, checkmarkStrokeStart]
-		checkmark.addAnimation(checkmarkAnimationGroup, forKey: "checkmarkAnimation")
+		checkmarkAnimationGroup.animations = [checkmarkStrokeEndAnimation, checkmarkStrokeStartAnimation]
+		checkmark.add(checkmarkAnimationGroup, forKey: "checkmarkAnimation")
 		
 		let circleAnimationGroup = CAAnimationGroup()
 		circleAnimationGroup.duration = animationDuration
-		circleAnimationGroup.removedOnCompletion = false
+		circleAnimationGroup.isRemovedOnCompletion = false
 		circleAnimationGroup.fillMode = kCAFillModeForwards
 		circleAnimationGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		
@@ -238,34 +309,34 @@ import UIKit
 		if selected {
 			circleStrokeEnd.beginTime = 0.0
 			
-			circleStrokeEnd.fromValue = NSNumber(float: 1.0)
-			circleStrokeEnd.toValue = NSNumber(float: -0.1)
+			circleStrokeEnd.fromValue = NSNumber(value: 1.0 as Float)
+			circleStrokeEnd.toValue = NSNumber(value: -0.1 as Float)
 		} else {
 			circleStrokeEnd.beginTime = animationDuration - circleAnimationDuration
 			
-			circleStrokeEnd.fromValue = NSNumber(float: 0.0)
-			circleStrokeEnd.toValue = NSNumber(float: 1.0)
+			circleStrokeEnd.fromValue = NSNumber(value: 0.0 as Float)
+			circleStrokeEnd.toValue = NSNumber(value: 1.0 as Float)
 		}
-		circleStrokeEnd.removedOnCompletion = false
+		circleStrokeEnd.isRemovedOnCompletion = false
 		circleStrokeEnd.fillMode = kCAFillModeForwards
 		
 		circleAnimationGroup.animations = [circleStrokeEnd]
-		circle.addAnimation(circleAnimationGroup, forKey: "circleStrokeEnd")
+		circle.add(circleAnimationGroup, forKey: "circleStrokeEnd")
 		
 		let trailCircleColor = CABasicAnimation(keyPath: "opacity")
 		trailCircleColor.duration = animationDuration
 		if selected {
-			trailCircleColor.fromValue = NSNumber(float: 0.0)
-			trailCircleColor.toValue = NSNumber(float: 1.0)
+			trailCircleColor.fromValue = NSNumber(value: 0.0 as Float)
+			trailCircleColor.toValue = NSNumber(value: 1.0 as Float)
 		} else {
-			trailCircleColor.fromValue = NSNumber(float: 1.0)
-			trailCircleColor.toValue = NSNumber(float: 0.0)
+			trailCircleColor.fromValue = NSNumber(value: 1.0 as Float)
+			trailCircleColor.toValue = NSNumber(value: 0.0 as Float)
 		}
 		trailCircleColor.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		
 		trailCircleColor.fillMode = kCAFillModeForwards
-		trailCircleColor.removedOnCompletion = false
-		trailCircle.addAnimation(trailCircleColor, forKey: "trailCircleColor")
+		trailCircleColor.isRemovedOnCompletion = false
+		trailCircle.add(trailCircleColor, forKey: "trailCircleColor")
 	}
 	
 }

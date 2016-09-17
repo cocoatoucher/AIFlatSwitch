@@ -1,15 +1,15 @@
 {
   "name": "AIFlatSwitch",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "license": "MIT",
-  "summary": "An alternative flat component to UISwitch on iOS",
+  "summary": "A flat design switch component alternative to iOS UISwitch",
   "homepage": "https://github.com/cocoatoucher/AIFlatSwitch",
   "authors": {
     "cocoatoucher": "cocoatoucher@aol.com"
   },
   "source": {
     "git": "https://github.com/cocoatoucher/AIFlatSwitch.git",
-    "tag": "0.0.2"
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "8.0"

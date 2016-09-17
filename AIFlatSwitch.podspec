@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name = 'AIFlatSwitch'
-  s.version = '0.0.4'
+  s.version = '1.0.0'
   s.license = 'MIT'
-  s.summary = 'An alternative flat component to UISwitch on iOS'
+  s.summary = 'A flat design switch component alternative to iOS UISwitch'
   s.homepage = 'https://github.com/cocoatoucher/AIFlatSwitch'
   s.authors = { 'cocoatoucher' => 'cocoatoucher@aol.com' }
   s.source = { :git => 'https://github.com/cocoatoucher/AIFlatSwitch.git', :tag => s.version }

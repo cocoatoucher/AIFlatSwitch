@@ -12,7 +12,7 @@
 		4EC481951ACEED2900A6A7BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC481931ACEED2900A6A7BA /* Main.storyboard */; };
 		4EC481971ACEED2900A6A7BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC481961ACEED2900A6A7BA /* Images.xcassets */; };
 		4EC4819A1ACEED2900A6A7BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC481981ACEED2900A6A7BA /* LaunchScreen.xib */; };
-		608646D5E8623B080E899C3D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7DC1425F3779CC71001207 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E07096ABE0E7D40289572C00 /* Pods_AIFlatSwitchExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 815DECC413C04A8F825E0AF3 /* Pods_AIFlatSwitchExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03D809F4340F65F28BA15456 /* Pods-AIFlatSwitchExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIFlatSwitchExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIFlatSwitchExample/Pods-AIFlatSwitchExample.release.xcconfig"; sourceTree = "<group>"; };
 		4EC4818A1ACEED2900A6A7BA /* AIFlatSwitchExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIFlatSwitchExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC4818E1ACEED2900A6A7BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EC4818F1ACEED2900A6A7BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,8 +36,8 @@
 		4EC481991ACEED2900A6A7BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4EC4819F1ACEED2900A6A7BA /* AIFlatSwitchExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIFlatSwitchExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC481A41ACEED2900A6A7BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		686E691C7A429D25E5279F1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		C0B699992027755D13EBA9AC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		815DECC413C04A8F825E0AF3 /* Pods_AIFlatSwitchExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIFlatSwitchExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99F926132506CCC0B9D2072D /* Pods-AIFlatSwitchExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIFlatSwitchExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIFlatSwitchExample/Pods-AIFlatSwitchExample.debug.xcconfig"; sourceTree = "<group>"; };
 		CF7DC1425F3779CC71001207 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -45,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				608646D5E8623B080E899C3D /* Pods.framework in Frameworks */,
+				E07096ABE0E7D40289572C00 /* Pods_AIFlatSwitchExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,8 +66,8 @@
 				4EC4818C1ACEED2900A6A7BA /* AIFlatSwitchExample */,
 				4EC481A21ACEED2900A6A7BA /* AIFlatSwitchExampleTests */,
 				4EC4818B1ACEED2900A6A7BA /* Products */,
-				9F88FD0EABE72008D2DEB033 /* Pods */,
 				5CE229E64536CB6DA2CF26E6 /* Frameworks */,
+				DFC64552A26B8D986E855C9B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,15 +121,16 @@
 			isa = PBXGroup;
 			children = (
 				CF7DC1425F3779CC71001207 /* Pods.framework */,
+				815DECC413C04A8F825E0AF3 /* Pods_AIFlatSwitchExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9F88FD0EABE72008D2DEB033 /* Pods */ = {
+		DFC64552A26B8D986E855C9B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C0B699992027755D13EBA9AC /* Pods.debug.xcconfig */,
-				686E691C7A429D25E5279F1B /* Pods.release.xcconfig */,
+				99F926132506CCC0B9D2072D /* Pods-AIFlatSwitchExample.debug.xcconfig */,
+				03D809F4340F65F28BA15456 /* Pods-AIFlatSwitchExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -140,12 +142,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EC481A91ACEED2900A6A7BA /* Build configuration list for PBXNativeTarget "AIFlatSwitchExample" */;
 			buildPhases = (
-				6E2097817B1329D89E948A7D /* Check Pods Manifest.lock */,
+				CBA3223D069259EB2D27F886 /* [CP] Check Pods Manifest.lock */,
 				4EC481861ACEED2900A6A7BA /* Sources */,
 				4EC481871ACEED2900A6A7BA /* Frameworks */,
 				4EC481881ACEED2900A6A7BA /* Resources */,
-				B6354AAE5457CAC06943E284 /* Embed Pods Frameworks */,
-				90634CAF3C27FABCEB26A84E /* Copy Pods Resources */,
+				E8138650862386136599CCB3 /* [CP] Embed Pods Frameworks */,
+				7423C842DCBD101FF0953D8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,11 +184,12 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = cocoatoucher;
 				TargetAttributes = {
 					4EC481891ACEED2900A6A7BA = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0800;
 					};
 					4EC4819E1ACEED2900A6A7BA = {
 						CreatedOnToolsVersion = 6.2;
@@ -234,14 +237,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6E2097817B1329D89E948A7D /* Check Pods Manifest.lock */ = {
+		7423C842DCBD101FF0953D8F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIFlatSwitchExample/Pods-AIFlatSwitchExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBA3223D069259EB2D27F886 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,34 +267,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		90634CAF3C27FABCEB26A84E /* Copy Pods Resources */ = {
+		E8138650862386136599CCB3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6354AAE5457CAC06943E284 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIFlatSwitchExample/Pods-AIFlatSwitchExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -341,8 +344,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -351,6 +356,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -384,8 +390,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -393,6 +401,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -402,31 +411,36 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		4EC481AA1ACEED2900A6A7BA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0B699992027755D13EBA9AC /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 99F926132506CCC0B9D2072D /* Pods-AIFlatSwitchExample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AIFlatSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoaotoucher.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		4EC481AB1ACEED2900A6A7BA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 686E691C7A429D25E5279F1B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 03D809F4340F65F28BA15456 /* Pods-AIFlatSwitchExample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AIFlatSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoaotoucher.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

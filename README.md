@@ -1,6 +1,6 @@
 # AIFlatSwitch
 
-A smooth, nice looking and IBDesignable animated flat switch component for iOS
+A smooth, nice looking and IBDesignable flat design switch for iOS. Can be used instead of UISwitch.
 
 Inspired by Creativedash's Dribbble post [here](http://dribbble.com/shots/1631598-On-Off)
 
@@ -87,7 +87,7 @@ flatSwitch.setSelected(true, animated: true)
 > To listen to its state changes:
 
 ```swift
-@IBAction func onSwitchValueChange(sender: AnyObject) {
+@IBAction func handleSwitchValueChange(sender: AnyObject) {
 		if let flatSwitch = sender as? AIFlatSwitch {
 			println(flatSwitch.selected)
 		}
@@ -100,6 +100,7 @@ flatSwitch.setSelected(true, animated: true)
 flatSwitch.lineWidth = 2.0
 flatSwitch.strokeColor = UIColor.blueColor()
 flatSwitch.trailStrokeColor = UIColor.redColor()
+flatSwitch.animatesOnTouch = false
 ```
 - [x] IBInspectable
 

@@ -17,7 +17,7 @@ class AIFlatSwitchTests: XCTestCase {
     override func setUp() {
         super.setUp()
 		
-		self.flatSwitch = AIFlatSwitch(frame: CGRectMake(0, 0, 50, 50))
+		self.flatSwitch = AIFlatSwitch(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     }
     
     override func tearDown() {
@@ -28,25 +28,25 @@ class AIFlatSwitchTests: XCTestCase {
 	func testIsSelected() {
 		self.flatSwitch.setSelected(true, animated: false)
 		
-		XCTAssertTrue(self.flatSwitch.selected, "Selected state should be true")
+		XCTAssertTrue(self.flatSwitch.isSelected, "Selected state should be true")
 	}
 	
 	func testIsDeselected() {
 		self.flatSwitch.setSelected(false, animated: false)
 		
-		XCTAssertFalse(self.flatSwitch.selected, "Selected state should be false")
+		XCTAssertFalse(self.flatSwitch.isSelected, "Selected state should be false")
 	}
 	
 	func testIsSelectedAnimated() {
 		self.flatSwitch.setSelected(true, animated: true)
 		
-		XCTAssertTrue(self.flatSwitch.selected, "Selected state should be true")
+		XCTAssertTrue(self.flatSwitch.isSelected, "Selected state should be true")
 	}
 	
 	func testIsDeselectedAnimated() {
 		self.flatSwitch.setSelected(false, animated: true)
 		
-		XCTAssertFalse(self.flatSwitch.selected, "Selected state should be false")
+		XCTAssertFalse(self.flatSwitch.isSelected, "Selected state should be false")
 	}
     
 }
