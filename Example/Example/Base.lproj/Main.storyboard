@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="HHx-Lf-ppo">
             <objects>
-                <viewController id="wTD-Tt-MES" customClass="ViewController" customModule="AIFlatSwitchExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wTD-Tt-MES" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MCC-tT-iee"/>
                         <viewControllerLayoutGuide type="bottom" id="YEU-40-Ufk"/>

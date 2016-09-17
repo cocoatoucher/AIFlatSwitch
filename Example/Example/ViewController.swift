@@ -43,12 +43,11 @@ class ViewController: UIViewController {
 	func updateSwitchValue() {
 		label.text = (flatSwitch.isSelected) ? NSLocalizedString("On", comment: "") : NSLocalizedString("Off", comment: "")
 	}
-
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-
-
+	
+	
 }
-

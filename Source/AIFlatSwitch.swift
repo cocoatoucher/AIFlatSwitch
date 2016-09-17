@@ -10,10 +10,10 @@ import UIKit
 
 @IBDesignable open class AIFlatSwitch: UIControl {
 	
-	private let finalStrokeEndForCheckmark: CGFloat = 0.85
-	private let finalStrokeStartForCheckmark: CGFloat = 0.3
-	private let checkmarkBounceAmount: CGFloat = 0.1
-	private let animationDuration: CFTimeInterval = 0.3
+	fileprivate let finalStrokeEndForCheckmark: CGFloat = 0.85
+	fileprivate let finalStrokeStartForCheckmark: CGFloat = 0.3
+	fileprivate let checkmarkBounceAmount: CGFloat = 0.1
+	fileprivate let animationDuration: CFTimeInterval = 0.3
 	
 	/**
 		Line width for the circle, trail and checkmark parts of the switch.
@@ -156,7 +156,7 @@ import UIKit
 		trailCircle.removeAllAnimations()
 		
 		// Reset sublayer values
-		self.resetLayerValues(desiredSelectedState:self.isSelectedInternal, stateWillBeAnimated: animated)
+		self.resetLayerValues(self.isSelectedInternal, stateWillBeAnimated: animated)
 		
 		// Animate to new state
 		if animated {
@@ -223,7 +223,7 @@ import UIKit
 		- Parameter desiredSelectedState:	Desired selection state for the reset to handle
 		- Parameter stateWillBeAnimated:	If the reset should prepare the layers for animation
 	*/
-	fileprivate func resetLayerValues(desiredSelectedState: Bool, stateWillBeAnimated: Bool) {
+	fileprivate func resetLayerValues(_ desiredSelectedState: Bool, stateWillBeAnimated: Bool) {
 		CATransaction.begin()
 		CATransaction.setDisableActions(true)
 		
