@@ -14,6 +14,5 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "Source/*.swift",
-  "requires_arc": true
+  "source_files": "Source/*.swift"
 }

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if0-Nq-mSF" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if0-Nq-mSF" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="6b0-G7-s2c"/>
@@ -40,7 +40,7 @@
                                     <action selector="onSwitchValueChange:" destination="wTD-Tt-MES" eventType="valueChanged" id="BGh-BF-7kd"/>
                                 </connections>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpe-KQ-dfv" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpe-KQ-dfv" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="UOB-m6-kHF"/>
                                     <constraint firstAttribute="width" constant="70" id="dgd-3H-0Mf"/>
@@ -61,7 +61,7 @@
                                     <action selector="onSwitchValueChange:" destination="wTD-Tt-MES" eventType="valueChanged" id="K0c-Du-86O"/>
                                 </connections>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-na-ZAi" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-na-ZAi" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="b0S-rp-S0o"/>
@@ -99,7 +99,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djN-Dk-3LS">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djN-Dk-3LS">
                                 <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8Je-M2-Jhc"/>

@@ -8,5 +8,4 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/cocoatoucher/AIFlatSwitch.git', :tag => s.version }
   s.ios.deployment_target = '8.0'
   s.source_files = 'Source/*.swift'
-  s.requires_arc = true
 end
