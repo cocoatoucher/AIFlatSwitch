@@ -164,8 +164,8 @@ import UIKit
 		}
 	}
 	
-	open override func layoutSublayers(of: CALayer) {
-		super.layoutSublayers(of: of)
+	open override func layoutSublayers(of layer: CALayer) {
+		super.layoutSublayers(of: layer)
 		
 		guard layer == self.layer else {
 			return
