@@ -164,6 +164,7 @@
 					};
 					4ED8F5431D8DEB1700B97B8D = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -412,6 +413,7 @@
 				4ED8F5511D8DEB1700B97B8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ED8F5521D8DEB1700B97B8D /* Build configuration list for PBXNativeTarget "AIFlatSwitchTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +422,7 @@
 				4ED8F5541D8DEB1700B97B8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
