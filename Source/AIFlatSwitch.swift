@@ -8,12 +8,27 @@
 
 import UIKit
 
+/**
+	A flat design switch alternative to UISwitch
+*/
 @IBDesignable open class AIFlatSwitch: UIControl {
 	
-	fileprivate let finalStrokeEndForCheckmark: CGFloat = 0.85
-	fileprivate let finalStrokeStartForCheckmark: CGFloat = 0.3
-	fileprivate let checkmarkBounceAmount: CGFloat = 0.1
+	/**
+		Animation duration for the whole selection transition
+	*/
 	fileprivate let animationDuration: CFTimeInterval = 0.3
+	/**
+		Percentage where the checkmark tail ends
+	*/
+	fileprivate let finalStrokeEndForCheckmark: CGFloat = 0.85
+	/**
+		Percentage where the checkmark head begins
+	*/
+	fileprivate let finalStrokeStartForCheckmark: CGFloat = 0.3
+	/**
+		Percentage of the bounce amount of checkmark near animation completion
+	*/
+	fileprivate let checkmarkBounceAmount: CGFloat = 0.1
 	
 	/**
 		Line width for the circle, trail and checkmark parts of the switch.
