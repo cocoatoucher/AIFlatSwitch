@@ -204,7 +204,7 @@ import UIKit
 		circle.frame = self.bounds
 		circle.path = UIBezierPath(ovalIn: circleAndTrailFrame).cgPath
 		// Rotating circle by 212 degrees to be able to manipulate stroke end location.
-		circle.transform = CATransform3DMakeRotation(CGFloat(212 * M_PI / 180), 0, 0, 1)
+		circle.transform = CATransform3DMakeRotation(CGFloat(212 * Double.pi / 180), 0, 0, 1)
 		
 		let origin = CGPoint(x: offset.x + radius, y: offset.y + radius)
 		
@@ -213,8 +213,8 @@ import UIKit
 		
 		var checkmarkStartPoint = CGPoint.zero
 		// Checkmark will start from circle's stroke end calculated above.
-		checkmarkStartPoint.x = origin.x + radius * CGFloat(cos(212 * M_PI / 180))
-		checkmarkStartPoint.y = origin.y + radius * CGFloat(sin(212 * M_PI / 180))
+		checkmarkStartPoint.x = origin.x + radius * CGFloat(cos(212 * Double.pi / 180))
+		checkmarkStartPoint.y = origin.y + radius * CGFloat(sin(212 * Double.pi / 180))
 		checkmarkPath.move(to: checkmarkStartPoint)
 		
 		self.checkmarkSplitPoint = CGPoint(x: offset.x + radius * 0.9, y: offset.y + radius * 1.4)
@@ -222,8 +222,8 @@ import UIKit
 		
 		var checkmarkEndPoint = CGPoint.zero
 		// Checkmark will end 320 degrees location of the circle layer.
-		checkmarkEndPoint.x = origin.x + radius * CGFloat(cos(320 * M_PI / 180))
-		checkmarkEndPoint.y = origin.y + radius * CGFloat(sin(320 * M_PI / 180))
+		checkmarkEndPoint.x = origin.x + radius * CGFloat(cos(320 * Double.pi / 180))
+		checkmarkEndPoint.y = origin.y + radius * CGFloat(sin(320 * Double.pi / 180))
 		checkmarkPath.addLine(to: checkmarkEndPoint)
 		
 		checkmark.frame = self.bounds
