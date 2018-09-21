@@ -176,6 +176,7 @@ import UIKit
 		// Animate to new state
 		if animated {
 			self.addAnimations(desiredSelectedState: isSelectedInternal)
+			self.accessibilityValue = isSelected ? "checked" : "unchecked"
 		}
 	}
 	

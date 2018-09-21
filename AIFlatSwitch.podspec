@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'AIFlatSwitch'
-  s.version = '1.0.2'
+  s.version = '1.0.3'
   s.license = 'MIT'
   s.summary = 'Nicely animated flat design switch alternative to UISwitch'
   s.homepage = 'https://github.com/cocoatoucher/AIFlatSwitch'
