@@ -17,7 +17,7 @@ Inspired by Creativedash's Dribbble post [here](http://dribbble.com/shots/163159
 ## Requirements
 - iOS 8.0+
 - Xcode 8.0+ (Use pod version 0.0.4 for Xcode 7)
-- Swift 3.0+ (Use pod version 0.0.4 for Swift 2.3)
+- Swift 4.2+ (Use pod version 0.0.4 for Swift 2.3, Use pod version 1.0.3 for Swift 3)
 
 ## Installation
 
