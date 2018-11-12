@@ -90,9 +90,21 @@ flatSwitch.setSelected(true, animated: true)
 ```swift
 @IBAction func handleSwitchValueChange(sender: AnyObject) {
 		if let flatSwitch = sender as? AIFlatSwitch {
-			println(flatSwitch.isSelected)
+			print(flatSwitch.isSelected)
 		}
 	}
+```
+
+> Animation observer callbacks:
+
+```swift
+flatSwitch.selectionAnimationDidStart = { isSelected in
+    print("New state: \(isSelected)")
+}
+
+flatSwitch.selectionAnimationDidStop = { isSelected in
+    print("State when animation stopped: \(isSelected)")
+}
 ```
 
 > Styling the switch:
