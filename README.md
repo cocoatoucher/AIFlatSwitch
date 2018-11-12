@@ -43,7 +43,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'AIFlatSwitch', '~> 1.0.4'
+pod 'AIFlatSwitch', '~> 1.0.5'
 ```
 
 Then, run the following command:
