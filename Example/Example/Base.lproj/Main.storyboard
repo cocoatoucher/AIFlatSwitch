@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTD-Tt-MES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wTD-Tt-MES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if0-Nq-mSF" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                <rect key="frame" x="16" y="28" width="50" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="6b0-G7-s2c"/>
@@ -34,13 +38,14 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
                                         <color key="value" red="0.94509803921568625" green="0.63529411764705879" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isAbc" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onSwitchValueChange:" destination="wTD-Tt-MES" eventType="valueChanged" id="BGh-BF-7kd"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpe-KQ-dfv" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                <rect key="frame" x="16" y="98" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="UOB-m6-kHF"/>
                                     <constraint firstAttribute="width" constant="70" id="dgd-3H-0Mf"/>
@@ -55,13 +60,13 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
                                         <color key="value" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onSwitchValueChange:" destination="wTD-Tt-MES" eventType="valueChanged" id="K0c-Du-86O"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-na-ZAi" customClass="AIFlatSwitch" customModule="AIFlatSwitch">
+                                <rect key="frame" x="16" y="188" width="30" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="b0S-rp-S0o"/>
@@ -77,7 +82,6 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
                                         <color key="value" red="0.18431372549019609" green="0.77254901960784317" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="animatesOnTouch" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -85,21 +89,25 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeA-RR-O87">
+                                <rect key="frame" x="74" y="42.5" width="40.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto select &amp; animation" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esR-Sl-3KM">
+                                <rect key="frame" x="94" y="122.5" width="181.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto select &amp; no animation" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzB-Wm-qAV">
+                                <rect key="frame" x="54" y="192.5" width="205" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djN-Dk-3LS">
+                                <rect key="frame" x="16" y="238" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8Je-M2-Jhc"/>
@@ -107,6 +115,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added from view controller" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyR-ag-4eg">
+                                <rect key="frame" x="74" y="252.5" width="206.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -116,6 +125,7 @@
                         <constraints>
                             <constraint firstItem="Wpe-KQ-dfv" firstAttribute="top" secondItem="if0-Nq-mSF" secondAttribute="bottom" constant="20" id="1iI-gd-Anf"/>
                             <constraint firstItem="djN-Dk-3LS" firstAttribute="centerY" secondItem="wyR-ag-4eg" secondAttribute="centerY" constant="0.5" id="2R5-lD-Jlh"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wyR-ag-4eg" secondAttribute="trailing" id="50j-Ba-1a1"/>
                             <constraint firstItem="Wpe-KQ-dfv" firstAttribute="leading" secondItem="if0-Nq-mSF" secondAttribute="leading" id="ABS-Eo-0Ko"/>
                             <constraint firstItem="JeA-RR-O87" firstAttribute="centerY" secondItem="if0-Nq-mSF" secondAttribute="centerY" constant="-0.5" id="Am9-UL-Ik8"/>
                             <constraint firstItem="JeA-RR-O87" firstAttribute="leading" secondItem="if0-Nq-mSF" secondAttribute="trailing" constant="8" id="FYc-eZ-EmE"/>
@@ -126,9 +136,12 @@
                             <constraint firstItem="esR-Sl-3KM" firstAttribute="leading" secondItem="Wpe-KQ-dfv" secondAttribute="trailing" constant="8" id="VY1-nc-pOA"/>
                             <constraint firstItem="Kjq-na-ZAi" firstAttribute="leading" secondItem="Wpe-KQ-dfv" secondAttribute="leading" id="Vpm-ui-WCZ"/>
                             <constraint firstItem="if0-Nq-mSF" firstAttribute="leading" secondItem="5e8-Cf-Z2w" secondAttribute="leading" constant="16" id="dIE-Gy-Eyk"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="esR-Sl-3KM" secondAttribute="trailing" id="eiq-qo-Xi6"/>
                             <constraint firstItem="VzB-Wm-qAV" firstAttribute="leading" secondItem="Kjq-na-ZAi" secondAttribute="trailing" constant="8" id="h5X-lz-DvC"/>
                             <constraint firstItem="djN-Dk-3LS" firstAttribute="leading" secondItem="Kjq-na-ZAi" secondAttribute="leading" id="i2t-Ip-mb9"/>
                             <constraint firstItem="djN-Dk-3LS" firstAttribute="top" secondItem="Kjq-na-ZAi" secondAttribute="bottom" constant="20" id="n0b-Rg-iqw"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VzB-Wm-qAV" secondAttribute="trailing" id="nNf-sx-77a"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JeA-RR-O87" secondAttribute="trailing" id="obb-gY-2oC"/>
                             <constraint firstItem="wyR-ag-4eg" firstAttribute="leading" secondItem="djN-Dk-3LS" secondAttribute="trailing" constant="8" id="pig-et-8am"/>
                         </constraints>
                     </view>

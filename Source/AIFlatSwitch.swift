@@ -66,6 +66,8 @@ import UIKit
 			self.trailCircle.strokeColor = trailStrokeColor.cgColor
 		}
 	}
+    
+    @IBInspectable open var isAbc: Bool = false
 	
 	/**
 		Overrides isSelected from UIControl using internal state flag.
@@ -124,8 +126,8 @@ import UIKit
 	fileprivate func configure() {
 		
 		func configureShapeLayer(_ shapeLayer: CAShapeLayer) {
-			shapeLayer.lineJoin = kCALineJoinRound
-			shapeLayer.lineCap = kCALineCapRound
+			shapeLayer.lineJoin = CAShapeLayerLineJoin.round
+			shapeLayer.lineCap = CAShapeLayerLineCap.round
 			shapeLayer.lineWidth = self.lineWidth
 			shapeLayer.fillColor = UIColor.clear.cgColor
 			self.layer.addSublayer(shapeLayer)
@@ -145,7 +147,7 @@ import UIKit
 		self.setSelected(false, animated: false)
 		
 		// Add target for handling touch up inside event as a default manner
-		self.addTarget(self, action: #selector(AIFlatSwitch.handleTouchUpInside), for: UIControlEvents.touchUpInside)
+		self.addTarget(self, action: #selector(AIFlatSwitch.handleTouchUpInside), for: UIControl.Event.touchUpInside)
 	}
 	
 	/**
@@ -154,7 +156,7 @@ import UIKit
 	*/
 	@objc fileprivate func handleTouchUpInside() {
 		self.setSelected(!self.isSelected, animated: self.animatesOnTouch)
-		self.sendActions(for: UIControlEvents.valueChanged)
+		self.sendActions(for: UIControl.Event.valueChanged)
 	}
 	
 	/**
@@ -275,15 +277,15 @@ import UIKit
 		
 		let checkmarkAnimationGroup = CAAnimationGroup()
 		checkmarkAnimationGroup.isRemovedOnCompletion = false
-		checkmarkAnimationGroup.fillMode = kCAFillModeForwards
+		checkmarkAnimationGroup.fillMode = CAMediaTimingFillMode.forwards
 		checkmarkAnimationGroup.duration = animationDuration
-		checkmarkAnimationGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+		checkmarkAnimationGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
 		
 		let checkmarkStrokeEndAnimation = CAKeyframeAnimation(keyPath: "strokeEnd")
 		checkmarkStrokeEndAnimation.duration = checkmarkEndDuration + checkmarkBounceDuration
 		checkmarkStrokeEndAnimation.isRemovedOnCompletion = false
-		checkmarkStrokeEndAnimation.fillMode = kCAFillModeForwards
-		checkmarkStrokeEndAnimation.calculationMode = kCAAnimationPaced
+		checkmarkStrokeEndAnimation.fillMode = CAMediaTimingFillMode.forwards
+		checkmarkStrokeEndAnimation.calculationMode = CAAnimationCalculationMode.paced
 		
 		if selected {
 			checkmarkStrokeEndAnimation.values = [NSNumber(value: 0.0 as Float), NSNumber(value: Float(finalStrokeEndForCheckmark + checkmarkBounceAmount) as Float), NSNumber(value: Float(finalStrokeEndForCheckmark) as Float)]
@@ -296,8 +298,8 @@ import UIKit
 		let checkmarkStrokeStartAnimation = CAKeyframeAnimation(keyPath: "strokeStart")
 		checkmarkStrokeStartAnimation.duration = checkmarkStartDuration + checkmarkBounceDuration
 		checkmarkStrokeStartAnimation.isRemovedOnCompletion = false
-		checkmarkStrokeStartAnimation.fillMode = kCAFillModeForwards
-		checkmarkStrokeStartAnimation.calculationMode = kCAAnimationPaced
+		checkmarkStrokeStartAnimation.fillMode = CAMediaTimingFillMode.forwards
+		checkmarkStrokeStartAnimation.calculationMode = CAAnimationCalculationMode.paced
 		
 		if selected {
 			checkmarkStrokeStartAnimation.values = [NSNumber(value: 0.0 as Float), NSNumber(value: Float(finalStrokeStartForCheckmark + checkmarkBounceAmount) as Float), NSNumber(value: Float(finalStrokeStartForCheckmark) as Float)]
@@ -317,8 +319,8 @@ import UIKit
 		let circleAnimationGroup = CAAnimationGroup()
 		circleAnimationGroup.duration = animationDuration
 		circleAnimationGroup.isRemovedOnCompletion = false
-		circleAnimationGroup.fillMode = kCAFillModeForwards
-		circleAnimationGroup.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+		circleAnimationGroup.fillMode = CAMediaTimingFillMode.forwards
+		circleAnimationGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
 		
 		let circleStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
 		circleStrokeEnd.duration = circleAnimationDuration
@@ -334,7 +336,7 @@ import UIKit
 			circleStrokeEnd.toValue = NSNumber(value: 1.0 as Float)
 		}
 		circleStrokeEnd.isRemovedOnCompletion = false
-		circleStrokeEnd.fillMode = kCAFillModeForwards
+		circleStrokeEnd.fillMode = CAMediaTimingFillMode.forwards
 		
 		circleAnimationGroup.animations = [circleStrokeEnd]
 		circle.add(circleAnimationGroup, forKey: "circleStrokeEnd")
@@ -348,9 +350,9 @@ import UIKit
 			trailCircleColor.fromValue = NSNumber(value: 1.0 as Float)
 			trailCircleColor.toValue = NSNumber(value: 0.0 as Float)
 		}
-		trailCircleColor.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+		trailCircleColor.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
 		
-		trailCircleColor.fillMode = kCAFillModeForwards
+		trailCircleColor.fillMode = CAMediaTimingFillMode.forwards
 		trailCircleColor.isRemovedOnCompletion = false
 		trailCircle.add(trailCircleColor, forKey: "trailCircleColor")
 	}
