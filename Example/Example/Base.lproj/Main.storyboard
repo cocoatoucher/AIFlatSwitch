@@ -38,7 +38,6 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="trailStrokeColor">
                                         <color key="value" red="0.94509803921568625" green="0.63529411764705879" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isAbc" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onSwitchValueChange:" destination="wTD-Tt-MES" eventType="valueChanged" id="BGh-BF-7kd"/>

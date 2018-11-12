@@ -66,8 +66,6 @@ import UIKit
 			self.trailCircle.strokeColor = trailStrokeColor.cgColor
 		}
 	}
-    
-    @IBInspectable open var isAbc: Bool = false
 	
 	/**
 		Overrides isSelected from UIControl using internal state flag.
@@ -160,7 +158,7 @@ import UIKit
 	}
 	
 	/**
-		Switches between selected and deselected state. Use this method to programmatically change the valeu of selected state.
+		Switches between selected and deselected state. Use this method to programmatically change the value of selected state.
 		- Parameter isSelected: Whether the switch should be selected or not
 		- Parameter animated:	Whether the transition should be animated or not
 	*/
