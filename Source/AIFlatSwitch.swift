@@ -16,6 +16,11 @@ import UIKit
     // MARK: - Public
     
     /**
+     circleLayer, is the layer which appears inside the circle.
+     */
+    @IBInspectable open var circleLayer = CAShapeLayer()
+    
+    /**
      Line width for the circle, trail and checkmark parts of the switch.
      */
     @IBInspectable open var lineWidth: CGFloat = 2.0 {
@@ -162,6 +167,13 @@ import UIKit
         checkmark.frame = self.bounds
         checkmark.path = checkmarkPath.cgPath
         
+        let innerCircleRadius = fmin(self.bounds.width, self.bounds.height) / 2.1 - (lineWidth / 2.1)
+        
+        offset.x = (self.bounds.width - innerCircleRadius * 2) / 2.0
+        offset.y = (self.bounds.height - innerCircleRadius * 2) / 2.0
+        
+        circleLayer.path = UIBezierPath(ovalIn: CGRect(x: offset.x, y: offset.y, width: innerCircleRadius * 2, height: innerCircleRadius * 2)).cgPath
+        
         CATransaction.commit()
     }
     
@@ -221,6 +233,8 @@ import UIKit
         }
         
         // Setup layers
+        self.layer.addSublayer(circleLayer)
+        
         configureShapeLayer(trailCircle)
         trailCircle.strokeColor = trailStrokeColor.cgColor
         
