@@ -1,5 +1,5 @@
 PODS:
-  - AIFlatSwitch (1.0.5)
+  - AIFlatSwitch (1.0.6)
 
 DEPENDENCIES:
   - AIFlatSwitch (from `..`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  AIFlatSwitch: ef986cd55bcf276da4c9562ffb2de6353adaf813
+  AIFlatSwitch: 70a449a6e015f5bb133f62f0bdb7090a0443375a
 
 PODFILE CHECKSUM: ba5655ab2719e6ec0ccf84c53f42a35033524fab
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

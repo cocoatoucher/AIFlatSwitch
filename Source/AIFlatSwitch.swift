@@ -16,11 +16,6 @@ import UIKit
     // MARK: - Public
     
     /**
-     circleLayer, is the layer which appears inside the circle.
-     */
-    @IBInspectable open var circleLayer = CAShapeLayer()
-    
-    /**
      Line width for the circle, trail and checkmark parts of the switch.
      */
     @IBInspectable open var lineWidth: CGFloat = 2.0 {
@@ -54,6 +49,15 @@ import UIKit
     @IBInspectable open var trailStrokeColor: UIColor = UIColor.gray {
         didSet {
             self.trailCircle.strokeColor = trailStrokeColor.cgColor
+        }
+    }
+    
+    /**
+     Color for the inner circle.
+     */
+    @IBInspectable open var backgroundLayerColor: UIColor = UIColor.clear {
+        didSet {
+            self.backgroundLayer.backgroundColor = backgroundLayerColor.cgColor
         }
     }
     
@@ -172,7 +176,7 @@ import UIKit
         offset.x = (self.bounds.width - innerCircleRadius * 2) / 2.0
         offset.y = (self.bounds.height - innerCircleRadius * 2) / 2.0
         
-        circleLayer.path = UIBezierPath(ovalIn: CGRect(x: offset.x, y: offset.y, width: innerCircleRadius * 2, height: innerCircleRadius * 2)).cgPath
+        backgroundLayer.path = UIBezierPath(ovalIn: CGRect(x: offset.x, y: offset.y, width: innerCircleRadius * 2, height: innerCircleRadius * 2)).cgPath
         
         CATransaction.commit()
     }
@@ -212,6 +216,10 @@ import UIKit
      */
     private var checkmark: CAShapeLayer = CAShapeLayer()
     /**
+     circleLayer, is the layer which appears inside the circle.
+     */
+    private var backgroundLayer: CAShapeLayer = CAShapeLayer()
+    /**
      Middle point of the checkmark layer. Calculated each time the sublayers are layout.
      */
     private var checkmarkSplitPoint: CGPoint = CGPoint.zero
@@ -233,7 +241,8 @@ import UIKit
         }
         
         // Setup layers
-        self.layer.addSublayer(circleLayer)
+        self.layer.addSublayer(backgroundLayer)
+        backgroundLayer.backgroundColor = backgroundLayerColor.cgColor
         
         configureShapeLayer(trailCircle)
         trailCircle.strokeColor = trailStrokeColor.cgColor
