@@ -57,7 +57,7 @@ import UIKit
      */
     @IBInspectable open var backgroundLayerColor: UIColor = UIColor.clear {
         didSet {
-            self.backgroundLayer.backgroundColor = backgroundLayerColor.cgColor
+            self.backgroundLayer.fillColor = backgroundLayerColor.cgColor
         }
     }
     
@@ -242,7 +242,7 @@ import UIKit
         
         // Setup layers
         self.layer.addSublayer(backgroundLayer)
-        backgroundLayer.backgroundColor = backgroundLayerColor.cgColor
+        backgroundLayer.fillColor = backgroundLayerColor.cgColor
         
         configureShapeLayer(trailCircle)
         trailCircle.strokeColor = trailStrokeColor.cgColor

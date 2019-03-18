@@ -24,6 +24,7 @@ class ViewController: UIViewController {
 		self.programmaticSwitch = AIFlatSwitch(frame: CGRect(x: 0, y: 0, width: programmaticSwitchContainer.frame.width, height: programmaticSwitchContainer.frame.height))
 		self.programmaticSwitch.lineWidth = 2.0
 		self.programmaticSwitch.strokeColor = UIColor.blue
+        self.programmaticSwitch.backgroundLayerColor = UIColor.white
 		self.programmaticSwitch.trailStrokeColor = UIColor.red.withAlphaComponent(0.2)
 		self.programmaticSwitch.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		programmaticSwitchContainer.addSubview(programmaticSwitch)
