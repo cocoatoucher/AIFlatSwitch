@@ -1,6 +1,6 @@
 {
   "name": "AIFlatSwitch",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "summary": "Nicely animated flat design switch alternative to UISwitch",
   "homepage": "https://github.com/cocoatoucher/AIFlatSwitch",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/cocoatoucher/AIFlatSwitch.git",
-    "tag": "1.0.5"
+    "tag": "1.0.6"
   },
   "platforms": {
     "ios": "8.0"

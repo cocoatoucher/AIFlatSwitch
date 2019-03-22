@@ -23,7 +23,7 @@ Inspired by Creativedash's Dribbble post [here](http://dribbble.com/shots/163159
 
 > **Embedded frameworks require a minimum deployment target of iOS 8.**
 >
-> To use with a project targeting iOS 7, you must include the `AIFlatSwitch.swift` source file directly in your project. 
+> To use with a project targeting iOS 7, you must include the `AIFlatSwitch.swift` source file directly in your project.
 >
 
 ### CocoaPods
@@ -43,7 +43,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'AIFlatSwitch', '~> 1.0.5'
+pod 'AIFlatSwitch', '~> 1.0.6'
 ```
 
 Then, run the following command:
@@ -111,8 +111,9 @@ flatSwitch.selectionAnimationDidStop = { isSelected in
 
 ```swift
 flatSwitch.lineWidth = 2.0
-flatSwitch.strokeColor = UIColor.blueColor()
-flatSwitch.trailStrokeColor = UIColor.redColor()
+flatSwitch.strokeColor = UIColor.blue
+flatSwitch.trailStrokeColor = UIColor.red
+flatSwitch.backgroundLayerColor = UIColor.red
 flatSwitch.animatesOnTouch = false
 ```
 - [x] IBInspectable

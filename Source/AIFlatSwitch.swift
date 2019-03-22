@@ -53,6 +53,15 @@ import UIKit
     }
     
     /**
+     Color for the inner circle.
+     */
+    @IBInspectable open var backgroundLayerColor: UIColor = UIColor.clear {
+        didSet {
+            self.backgroundLayer.fillColor = backgroundLayerColor.cgColor
+        }
+    }
+    
+    /**
      Overrides isSelected from UIControl using internal state flag.
      Default value is false.
      */
@@ -162,6 +171,13 @@ import UIKit
         checkmark.frame = self.bounds
         checkmark.path = checkmarkPath.cgPath
         
+        let innerCircleRadius = fmin(self.bounds.width, self.bounds.height) / 2.1 - (lineWidth / 2.1)
+        
+        offset.x = (self.bounds.width - innerCircleRadius * 2) / 2.0
+        offset.y = (self.bounds.height - innerCircleRadius * 2) / 2.0
+        
+        backgroundLayer.path = UIBezierPath(ovalIn: CGRect(x: offset.x, y: offset.y, width: innerCircleRadius * 2, height: innerCircleRadius * 2)).cgPath
+        
         CATransaction.commit()
     }
     
@@ -200,6 +216,10 @@ import UIKit
      */
     private var checkmark: CAShapeLayer = CAShapeLayer()
     /**
+     circleLayer, is the layer which appears inside the circle.
+     */
+    private var backgroundLayer: CAShapeLayer = CAShapeLayer()
+    /**
      Middle point of the checkmark layer. Calculated each time the sublayers are layout.
      */
     private var checkmarkSplitPoint: CGPoint = CGPoint.zero
@@ -221,6 +241,9 @@ import UIKit
         }
         
         // Setup layers
+        self.layer.addSublayer(backgroundLayer)
+        backgroundLayer.fillColor = backgroundLayerColor.cgColor
+        
         configureShapeLayer(trailCircle)
         trailCircle.strokeColor = trailStrokeColor.cgColor
         
