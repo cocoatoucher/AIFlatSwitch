@@ -4,56 +4,26 @@ A smooth, nice looking and IBDesignable flat design switch for iOS. Can be used 
 
 Inspired by Creativedash's Dribbble post [here](http://dribbble.com/shots/1631598-On-Off)
 
-[![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
-)](https://developer.apple.com/iphone/index.action)
-[![Language](http://img.shields.io/badge/language-swift-brightgreen.svg?style=flat
-)](https://developer.apple.com/swift)
-[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
-)](http://mit-license.org)
+<p align="center">
+<a target="_blank" rel="noopener noreferrer" href="http://dribbble.com/shots/1631598-On-Off">
+<img src="https://s3.amazonaws.com/f.cl.ly/items/1p0w3B0E3m2I2k3e0z1Q/onoff.gif" width="200" max-width="80%" alt="Flat switch animation">
+</a>
+</p>
 
-<p><a href="url"><img src="https://s3.amazonaws.com/f.cl.ly/items/1p0w3B0E3m2I2k3e0z1Q/onoff.gif" align="left" height="150" width="200" ></a></p>
-<br><br><br><br><br><br><br>
+<p align="center">
+<img src="https://img.shields.io/badge/Swift-5.0-orange.svg"/>
+<a href="https://cocoapods.org/pods/AIFlatSwitch">
+<img src="https://img.shields.io/cocoapods/v/AIFlatSwitch.svg" alt="cocoapods"/>
+</a>
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"/>
+</p>
 
 ## Requirements
-- iOS 8.0+
-- Xcode 8.0+
-- Swift 5 (Use pod version 0.0.4 for Swift 2.3, pod 1.0.3 for Swift 3, pod 1.0.6 for Swift 4.2)
-
-## Installation
-
-> **Embedded frameworks require a minimum deployment target of iOS 8.**
-
-### CocoaPods
-
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects.
-
-CocoaPods 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
-
-```bash
-$ gem install cocoapods
-```
-
-To integrate AIFlatSwitch into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-use_frameworks!
-
-pod 'AIFlatSwitch', '~> 1.0.6'
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
-```
-
-### Manually
-1. Download and drop ```AIFlatSwitch.swift``` in your project.  
-2. Congratulations!  
-
----
+- iOS 8.0+, tvOS 12.0+
+- Xcode 11.0+
+- Swift 5
 
 ## Usage
 
@@ -119,9 +89,7 @@ flatSwitch.animatesOnTouch = false
 
 - Make your changes in your branch
 - Bump the pod version in AIFlatSwitch.podspec file (e.g. 1.0.1 to 1.0.2)
-- Make a pod install in Example project to update its dependency to new framework version you just created
 - Make sure the Example project compiles and works fine in the Simulator
-- Find podspec version references in README.md and update them (e.g. Cocoapods section)
 - Find references to your source code changes in README.md and update them (e.g. method names, changed features)
 - Create a pull request
 
