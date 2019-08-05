@@ -27,11 +27,13 @@
 		4E105409225B84540059CFEE /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		4ED8F53B1D8DEB1700B97B8D /* AIFlatSwitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AIFlatSwitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED8F53E1D8DEB1700B97B8D /* AIFlatSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIFlatSwitch.h; sourceTree = "<group>"; };
-		4ED8F53F1D8DEB1700B97B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ED8F5441D8DEB1700B97B8D /* AIFlatSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIFlatSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED8F5491D8DEB1700B97B8D /* AIFlatSwitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFlatSwitchTests.swift; sourceTree = "<group>"; };
 		4ED8F54B1D8DEB1700B97B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ED8F5561D8DEB3600B97B8D /* AIFlatSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFlatSwitch.swift; sourceTree = "<group>"; };
+		4EDDA37922F86FCF00853937 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4EDDA37A22F86FE200853937 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		4EDDA38422F870F800853937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +58,12 @@
 		4ED8F5311D8DEB1700B97B8D = {
 			isa = PBXGroup;
 			children = (
+				4EDDA38422F870F800853937 /* Info.plist */,
+				4EDDA37A22F86FE200853937 /* Package.swift */,
+				4EDDA37922F86FCF00853937 /* README.md */,
 				4E105409225B84540059CFEE /* .swift-version */,
-				4ED8F5551D8DEB1C00B97B8D /* Source */,
-				4ED8F53D1D8DEB1700B97B8D /* AIFlatSwitch */,
-				4ED8F5481D8DEB1700B97B8D /* AIFlatSwitchTests */,
+				4ED8F5551D8DEB1C00B97B8D /* Sources */,
+				4ED8F5481D8DEB1700B97B8D /* Tests */,
 				4ED8F53C1D8DEB1700B97B8D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,30 +77,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4ED8F53D1D8DEB1700B97B8D /* AIFlatSwitch */ = {
-			isa = PBXGroup;
-			children = (
-				4ED8F53E1D8DEB1700B97B8D /* AIFlatSwitch.h */,
-				4ED8F53F1D8DEB1700B97B8D /* Info.plist */,
-			);
-			path = AIFlatSwitch;
-			sourceTree = "<group>";
-		};
-		4ED8F5481D8DEB1700B97B8D /* AIFlatSwitchTests */ = {
+		4ED8F5481D8DEB1700B97B8D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				4ED8F5491D8DEB1700B97B8D /* AIFlatSwitchTests.swift */,
 				4ED8F54B1D8DEB1700B97B8D /* Info.plist */,
 			);
-			path = AIFlatSwitchTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		4ED8F5551D8DEB1C00B97B8D /* Source */ = {
+		4ED8F5551D8DEB1C00B97B8D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				4ED8F5561D8DEB3600B97B8D /* AIFlatSwitch.swift */,
+				4ED8F53E1D8DEB1700B97B8D /* AIFlatSwitch.h */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,7 +359,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = AIFlatSwitch/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoatoucher.AIFlatSwitch;
@@ -383,7 +379,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = AIFlatSwitch/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoatoucher.AIFlatSwitch;

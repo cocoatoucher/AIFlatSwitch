@@ -16,15 +16,12 @@ Inspired by Creativedash's Dribbble post [here](http://dribbble.com/shots/163159
 
 ## Requirements
 - iOS 8.0+
-- Xcode 8.0+ (Use pod version 0.0.4 for Xcode 7)
-- Swift 4.2+ (Use pod version 0.0.4 for Swift 2.3, Use pod version 1.0.3 for Swift 3)
+- Xcode 8.0+
+- Swift 5 (Use pod version 0.0.4 for Swift 2.3, pod 1.0.3 for Swift 3, pod 1.0.6 for Swift 4.2)
 
 ## Installation
 
 > **Embedded frameworks require a minimum deployment target of iOS 8.**
->
-> To use with a project targeting iOS 7, you must include the `AIFlatSwitch.swift` source file directly in your project.
->
 
 ### CocoaPods
 
