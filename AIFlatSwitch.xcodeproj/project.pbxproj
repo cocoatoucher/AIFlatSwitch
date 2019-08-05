@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E0F6E4C22F8E1AB0079C984 /* AIFlatSwitch.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AIFlatSwitch.podspec; sourceTree = "<group>"; };
 		4E105409225B84540059CFEE /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		4ED8F53B1D8DEB1700B97B8D /* AIFlatSwitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AIFlatSwitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED8F53E1D8DEB1700B97B8D /* AIFlatSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIFlatSwitch.h; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 			children = (
 				4EDDA38422F870F800853937 /* Info.plist */,
 				4EDDA37A22F86FE200853937 /* Package.swift */,
+				4E0F6E4C22F8E1AB0079C984 /* AIFlatSwitch.podspec */,
 				4EDDA37922F86FCF00853937 /* README.md */,
 				4E105409225B84540059CFEE /* .swift-version */,
 				4ED8F5551D8DEB1C00B97B8D /* Sources */,
