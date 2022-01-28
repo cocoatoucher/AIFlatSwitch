@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "AIFlatSwitch",
     platforms: [
-        .iOS(.v8), .tvOS(.v12)
+        .iOS(.v9), .tvOS(.v12)
     ],
     products: [
         .library(name: "AIFlatSwitch", targets: ["AIFlatSwitch"])
